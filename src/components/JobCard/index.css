@@ -1,0 +1,31 @@
+.jobs-container {
+  padding: 20px;
+  background-color: #121212;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.first-section {
+  display: flex;
+}
+
+.second-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-part-section {
+  display: flex;
+}
+
+.spaces {
+  margin: 10px;
+  padding: 10px;
+}
+
+.line {
+  color: #7e858e;
+}

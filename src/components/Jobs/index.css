@@ -1,0 +1,49 @@
+.button {
+  background-color: #6366f1;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.line {
+  color: #ffffff;
+}
+
+.left-section-container {
+  width: 40%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.retry-button {
+  background-color: #6366f1;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.no-jobs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Roboto';
+}
+
+.types-list{
+  padding: 10px;
+  color: #ffffff;
+  margin: 10px;
+}
