@@ -166,40 +166,35 @@ class Jobs extends Component {
       })
     }
   }
-  renderJobsFailureView = () => {
-    return (
-      <div className="failure-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
-          alt="failure view"
-          className="failure"
-        />
-        <h1>Oops! Something Went Wrong</h1>
-        <p>We cannot seem to find the page you are looking for.</p>
-        <button type="button" className="retry-button">
-          Retry
-        </button>
-      </div>
-    )
-  }
 
-  renderProfileFailureView = () => {
-    return (
-      <div>
-        <button type="button" className="button" onClick={this.getProfile}>
-          Retry
-        </button>
-      </div>
-    )
-  }
+  renderJobsFailureView = () => (
+    <div className="failure-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failure"
+      />
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for.</p>
+      <button type="button" className="retry-button" onClick={this.getJobs}>
+        Retry
+      </button>
+    </div>
+  )
 
-  renderLoaderView = () => {
-    return (
-      <div className="loader-container" data-testid="loader">
-        <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-      </div>
-    )
-  }
+  renderProfileFailureView = () => (
+    <div>
+      <button type="button" className="button" onClick={this.getProfile}>
+        Retry
+      </button>
+    </div>
+  )
+
+  renderLoaderView = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
 
   renderProfileCard = () => {
     const {profileDetails} = this.state
@@ -210,19 +205,17 @@ class Jobs extends Component {
     )
   }
 
-  renderNoJobsFound = () => {
-    return (
-      <div className="no-jobs-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
-          alt="no jobs"
-          className="noJobs"
-        />
-        <h1>No Jobs Found</h1>
-        <p>We could not find any jobs. Try other filters</p>
-      </div>
-    )
-  }
+  renderNoJobsFound = () => (
+    <div className="no-jobs-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+        alt="no jobs"
+        className="noJobs"
+      />
+      <h1>No Jobs Found</h1>
+      <p>We could not find any jobs. Try other filters</p>
+    </div>
+  )
 
   renderJobsList = () => {
     const {jobsList} = this.state
@@ -242,8 +235,13 @@ class Jobs extends Component {
   }
 
   render() {
-    const {isLoading, isError, isJobsLoading, jobsError, searchInput} =
-      this.state
+    const {
+      isLoading,
+      isError,
+      isJobsLoading,
+      jobsError,
+      searchInput,
+    } = this.state
     let content
     if (isLoading) {
       content = this.renderLoaderView()
@@ -323,10 +321,12 @@ class Jobs extends Component {
               placeholder="Search"
               onChange={this.onSearchInputChange}
             />
+
             <button
               type="button"
               data-testid="searchButton"
               onClick={this.onSearch}
+              aria-label="Search"
             >
               <BsSearch className="search-icon" />
             </button>

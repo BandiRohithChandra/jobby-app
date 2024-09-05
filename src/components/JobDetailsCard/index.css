@@ -1,0 +1,72 @@
+.main-container {
+  padding: 20px;
+}
+
+.details-container {
+  padding: 25px;
+  margin: 30px;
+  border-radius: 10px;
+  background-color: #7e858e;
+  color: #ffffff;
+}
+
+.list-container {
+  padding: 25px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #7e858e;
+  color: #ffffff;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+}
+
+.location-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+p {
+  margin: 10px;
+  padding: 10px;
+}
+
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.skills-container {
+  list-style-type: none;
+  margin: 20px;
+}
+
+.life-at-company-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lifeAtCompany {
+  width: 300px;
+}
+
+.eachJob-container {
+  display: flex;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.visit-button{
+  color: #b6c5ff;
+}

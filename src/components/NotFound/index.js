@@ -1,14 +1,13 @@
 import './index.css'
 
-const NotFound = () => {
-  return (
-    <div>
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
-        alt="not found"
-        className="not-found"
-      />
-    </div>
-  )
-}
+const NotFound = () => (
+  <div>
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
+      alt="not found"
+      className="not-found"
+    />
+  </div>
+)
+
 export default NotFound

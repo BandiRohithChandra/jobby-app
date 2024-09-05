@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class Login extends Component {
@@ -7,7 +8,6 @@ class Login extends Component {
     username: '',
     password: '',
     isError: false,
-    isLoggedIn: false,
     errorMsg: '',
   }
 
@@ -36,8 +36,26 @@ class Login extends Component {
     })
   }
 
+  validateInputs = () => {
+    const {username, password} = this.state
+    if (!username.trim()) {
+      return 'Username cannot be empty'
+    }
+    if (!password.trim()) {
+      return 'Password cannot be empty'
+    }
+    return ''
+  }
+
   onSubmitForm = async event => {
     event.preventDefault()
+    const errorMsg = this.validateInputs()
+
+    if (errorMsg) {
+      this.onSubmitFailure(errorMsg)
+      return
+    }
+
     const {username, password} = this.state
     const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
@@ -51,22 +69,30 @@ class Login extends Component {
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwtToken)
     } else {
+      if (data.errorMsg === 'Invalid Password') {
+        this.onSubmitFailure('Invalid Password')
+      } else {
+        this.onSubmitFailure(data.errorMsg)
+      }
       this.onSubmitFailure(data.errorMsg)
     }
   }
 
   render() {
     const {username, password, isError, errorMsg} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="login-container">
         <form className="form-container" onSubmit={this.onSubmitForm}>
-          <div>
-            <img
-              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-              alt="website logo"
-              className="website-logo"
-            />
-          </div>
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+            alt="website logo"
+            className="website-logo"
+          />
+
           <label htmlFor="username" className="label">
             USERNAME
           </label>
